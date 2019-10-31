@@ -1,0 +1,16 @@
+import random
+def rounds(coins):
+
+  if coins < 1:
+    return None
+
+  if coins == 1:
+    return 1
+  
+  count = rounds(coins // 2) + 1
+
+  return count
+
+
+n = random.randint(0,100)
+print("It took {0} rounds to change {1} coins into 1".format(rounds(n), n))
