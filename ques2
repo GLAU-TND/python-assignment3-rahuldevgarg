@@ -1,0 +1,21 @@
+def kCharS(str1, str2, m, n): 
+	if not m: return n 
+	if not n: return m 
+	if str1[m-1] == str2[n-1]: 
+		return kCharS(str1, str2, m-1, n-1) 
+	res = 1 + min(kCharS(str1, str2, m-1, n), 
+				(kCharS(str1, str2, m, n-1))) 
+				
+	return res 
+def spalindrome(string, k): 
+	revStr = string[::-1] 
+	l = len(string) 
+
+	return (kCharS(string, revStr, l, l) <= k * 2) 
+
+
+string = "waterrfetawx"
+k = 2
+
+print("true" if spalindrome(string, k) else "false") 
+
